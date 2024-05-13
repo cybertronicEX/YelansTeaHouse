@@ -19,7 +19,7 @@
      <script src="js/petals.js"></script>
     
       	<div class="topbar d-flex flex-row align-items-center">
-			<img class="img-contain p-3" src="img/logo_mini.png">
+			<img class="img-contain p-3" src="imgs/logo.png">
 		</div>
 		<div class="tree_container">
 			<img class="img-contain p-3" src="imgs/tree.png">
