@@ -34,31 +34,19 @@
                </div>
                 <!--form-->
 	           <form action="LoginServlet" method="POST">
-	               
-	            <div class="login-form-container">
-	                 <div class="">
-	                        <i class= "fa fa-envelope"></i>
+		            <div class="login-form-container">
+		            	<div class="login-form-input-holder">
+	                        <label class="login-form-label">E-mail:</label>
 	                        <input class="input-text" type="email" name="email" placeholder="Email address" required onchange="validatemail()">
-	                 </div>
-	                 <div class="	">
-	                        <i class="fa fa-key"></i>
+	                        <label class="login-form-label">password:</label>
 	                        <input class="input-text" type="password" name="password" id="password" placeholder="Password" required onchange="validatePass()">
-	<!--        	        	<button type="button" class="eyeBtn" onclick="showPass()">
-	                            <i class="fa fa-eye"></i> 
-			                     </button>
-	  -->                
-	                    </div>
-	                    <div>
-	                            <button class="btn1 btn-loggin" type = "submit">Login</button>
-	                    </div>
-                </div>
+                    	</div>
+                        <button class="btn1 btn-loggin" type = "submit">Login</button>
+	                </div>
                 </form>
-                <!-- 	<div class="forgot">
-                		<a href="Forgot1.jsp">Forgot password</a>
-                	</div> -->
-                   	<div class="sign-up">
-                        <p class="bold-text">Don't have an account?</p>
-                        <a  class="btn1 btn-register form-a"  href="register.jsp">Sign up</a>
+                   	<div class="login-sign-up">
+                        <p class="login-text">Don't have an account?</p>
+                        <a  class="sign-up-link"  href="register.jsp">Sign up</a>
                     </div>
                 </div>
         
@@ -78,5 +66,15 @@
             }
         }
     </script>
+    <% 
+    // Check if an error message is present in request attribute
+    String errorMessage = (String) request.getAttribute("errorMessage");
+    if (errorMessage != null) {
+    %>
+    <script>
+        // Display error message in a popup alert
+        alert("<%= errorMessage %>");
+    </script>
+    <% } %>
 </body>
 </html>

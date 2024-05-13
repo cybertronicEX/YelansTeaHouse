@@ -35,11 +35,13 @@
     nav ul li {
         margin: 0 15px;
         padding: 5px 10px;
+        color:#FFFFFF;
+        font-weight: bold;
     }
     nav ul li a {
         text-decoration: none;
         color: #FFFFFF;
-        font-weight: bold;
+        
     }
     nav ul li a:hover {
         color: #ffbfd3;

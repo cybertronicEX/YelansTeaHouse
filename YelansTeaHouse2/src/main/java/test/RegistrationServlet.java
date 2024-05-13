@@ -47,7 +47,7 @@ public class RegistrationServlet extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.println("<script type='text/javascript'>");
                 out.println("alert('User with the same email already exists.');");
-                out.println("window.location.href='registration.html';"); // Redirect back to registration page
+                out.println("window.location.href='register.jsp';"); // Redirect back to registration page
                 out.println("</script>");
             } else {
                 // Insert new user

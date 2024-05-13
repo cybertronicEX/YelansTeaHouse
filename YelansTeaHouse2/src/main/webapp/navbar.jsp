@@ -19,11 +19,12 @@
             <li><a href="UserServlet">Users</a></li>
         <% } %>
         <li><a href="ProductServlet">Products</a></li>
-        <li class="logout"><a href="LogoutServlet">Logout</a></li>
+        
         <%-- Show user email if available in session --%>
         <% String userEmail = (String) session.getAttribute("email"); %>
         <% if (userEmail != null) { %>
-            <li style="color: white; margin-left: 20px;"><%= userEmail %></li>
+            <li><%= userEmail %></li>
         <% } %> 
+        <li><a href="LogoutServlet">Logout</a></li>
     </ul>
 </nav>

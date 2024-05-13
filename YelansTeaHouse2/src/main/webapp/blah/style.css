@@ -26,7 +26,8 @@ body{
     position: absolute; /* Position the form absolutely for centering */
     top: 50%; /* Move the form down by 50% from the top */
     left: 50%; /* Move the form right by 50% from the left */
-    transform: translate(-50%, -50%); /* Use translate to center the form */
+    transform: translate(-50%, -50%); 
+   	width:425px;/* Use translate to center the form */
 }
 
 .header{
@@ -69,9 +70,17 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 	
 }
+.login-form-input-holder{
+	text-align: left;
 
+}
+.login-form-label{
+	color:#ff85aa;
+	font-weight:bold;
+}
 
 
 .login-form-container > div {
@@ -81,30 +90,43 @@ body{
 .login-form-container > div * {
 	display:inline;
 }
-/*.login-form-container input {
-	width: 25% !important;
-}*/
 
-.forget-form-container{
+/* login -- register account */
+.login-sign-up{
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align:right;
-	margin-right:20%;
-	margin:auto;
-	
+    text-align: center;
+	justify-content:center;
+	margin-top:10px;
+   
 }
-.forget-form-container > div {
-	width:100%;
+.login-text{
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#929292;
 }
 
-.forget-form-container > div * {
-	display:inline;
+.sign-up-link{
+	text-decoration: underline;
+	margin-left:10px;
+	color:#9c4766;
 }
-.forget-form-container input {
-	width: 75% !important;
+.sign-up-link:hover{
+	text-decoration: underline;
+	margin-left:10px;
+	color:#ff85aa
 }
+.btn-loggin{
+    background-color: #ff85aa;
+    color: white;
+}
+
+.btn-loggin:hover{
+    background-color: white;
+    color: #ff85aa;
+    font-weight: bold;
+}
+
+
 
 .edit-container{
 	display: flex;
@@ -184,21 +206,7 @@ body{
 .btn:hover{
     box-shadow: 3px 3px  black;
 }
-.btn-loggin{
-    background-color: #e01fa2;
-    color: white;
-}
-.btn-recover{
-    background-color:#f33f5e !important;
-    color: white;
-    margin-bottom:3%;
-    margin-top: 3%;
-}
-.btn-loggin:hover{
-    background-color: white;
-    color: #e01fa2;
-    font-weight: bold;
-}
+
 .line{
     height: 1px;
     margin-top: 5%;
@@ -208,40 +216,8 @@ body{
     background-color: black;
 }
 
-.sign-up{
-    text-align: center;
-   
-    padding-top: 10px;
-}
-.form-a{ 
-    text-decoration: none;
-    padding: 5px;
-    width: 150px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.btn-register{	
-    background-color: white;
-    color:#e01fa2;
-     border-style: solid;
-     border: 5px;
-}
-.btn-register:hover{
-    background-color: #e01fa2;
-    color:white;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-   
-}
 
-.forgot{
-	Margin-top: 10px;
-	text-align: center;
-}
-.bold-text{
-    font-weight: bolder;
-    font-size: 28px;
-    font-family: Arial, Helvetica, sans-serif;
-}
+
 
 .bold-text1{
     font-weight: bolder;
@@ -278,14 +254,13 @@ body{
 	
 }
 
-
 a{
 	color: black;
 	text-decoration: none;
 }
 
 a:visited {
-  color: Purple;
+  color:none;
 }
 
 a:hover {

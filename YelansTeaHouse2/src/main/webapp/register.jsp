@@ -18,7 +18,7 @@
     <script src="js/petals.js"></script>
 
     <div class="topbar d-flex flex-row align-items-center">
-        <img class="img-contain p-3" src="img/logo_mini.png">
+        <img class="img-contain p-3" src="imgs/logo.png">
     </div>
     <div class="tree_container">
         <img class="img-contain p-3" src="imgs/tree.png">
@@ -27,40 +27,29 @@
         <div  class="header">
             <!--title-->
             <div>
-                <img class="img-contain1 p-3" src="img/logo.png">
+                <img class="img-contain1 p-3" src="imgs/logo.png">
             </div>
             <!--end title-->
         </div>
         <!--form-->
         <form action="RegistrationServlet" method="POST">
-            <div class="register-form-container">
-                <div class="">
-                    <i class="fa fa-envelope"></i>
-                    <input class="input-text" type="email" name="email" placeholder="Email address" required onchange="validatemail()">
-                </div>
-                <div class="">
-		            <i class="fa fa-phone"></i>
+            <div class="login-form-container">
+                <div class="login-form-input-holder">
+                    <label class="login-form-label">E-mail:</label>
+                    <input class="input-text" type="email" name="email" placeholder="Email address" required onchange="validatemail()"> 
+                	<label class="login-form-label">Contact No:</label>
 		            <input class="input-text" type="text" name="contactNumber" placeholder="Contact number" required>
-		        </div>
-		        <div class="">
-		            <i class="fa fa-home"></i>
-		            <input class="input-text" type="text" name="address" placeholder="Address" required>
-		        </div>
-	            <div class="">
-	                  <i class="fa fa-key"></i>
-	                  <input class="input-text" type="password" name="password" id="password" placeholder="Password" required onchange="validatePass()">
-	                <!--   <button type="button" class="eyeBtn" onclick="togglePasswordVisibility()">
-	                      <i id="eyeIcon" class="fa fa-eye"></i>
-	                  </button> -->
+		        	<label class="login-form-label">Address:</label>
+		            <input class="input-text" type="text" name="address" placeholder="Address" required>		      
+	               	<label class="login-form-label">Password:</label>
+                  	<input class="input-text" type="password" name="password" id="password" placeholder="Password" required onchange="validatePass()">
 	             </div>
-	              <div>
-	                  <button class="btn1 btn-register" type="submit">Register</button>
-	              </div>
+	             <button class="btn1 btn-loggin" type="submit">Register</button>
             </div>
         </form>
-        <div class="sign-in">
-            <p class="bold-text">Already have an account?</p>
-            <a  class="btn1 btn-login form-a"  href="login.jsp">Login</a>
+        <div class="login-sign-up">
+            <p class="login-text">Already have an account?</p>
+            <a  class="sign-up-link"  href="login.jsp">Login</a>
         </div>
     </div>
 </div>

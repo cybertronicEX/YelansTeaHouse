@@ -38,7 +38,10 @@
 	                response.sendRedirect("home.jsp");
 	                } else {
 					// Login failed
-					response.getWriter().append("Login failed.");
+	                	 request.setAttribute("errorMessage", "Login failed.");
+	                     // Forward the request to the login page
+	                     request.getRequestDispatcher("login.jsp").forward(request, response);
+					
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
