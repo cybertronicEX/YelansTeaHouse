@@ -1,0 +1,113 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.cover {
+    background-color: #ffffff;
+    background-size: cover;
+    height: auto;
+    position: relative;
+}
+
+.cover-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: white;
+}
+
+.about-section {
+    display: flex;
+    padding: 150px 0;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 500px; /* Adjust the maximum width of the image */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 10px;
+    margin-right: 50px;
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+    color: #ff85aa;
+}
+
+.products-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.featured-products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.testemonial-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.testemonials {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testemonial {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
