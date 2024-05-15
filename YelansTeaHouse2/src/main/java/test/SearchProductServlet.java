@@ -23,7 +23,7 @@ public class SearchProductServlet extends HttpServlet {
             rs = stmt.executeQuery();
 
          // Process the ResultSet and generate your response.
-            StringBuilder html = new StringBuilder("<div class=\"product-grid\">");
+            StringBuilder html = new StringBuilder();
             while (rs.next()) {
                 html.append("<form id=\"deleteProductForm_").append(rs.getInt("itemNo")).append("\" action=\"DeleteProductServlet\" method=\"POST\">");
                 html.append("<input type=\"hidden\" name=\"itemName\" value=\"").append(rs.getString("itemName")).append("\">");
@@ -35,6 +35,7 @@ public class SearchProductServlet extends HttpServlet {
                 html.append("<button class=\"add-to-cart-button\">Add to Cart</button>");
                 html.append("</div></div></form>");
             }
+
             html.append("</div>");
 
             // Send the response

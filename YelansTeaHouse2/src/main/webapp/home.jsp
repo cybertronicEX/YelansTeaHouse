@@ -46,7 +46,7 @@
             <!-- Featured Product 4 -->
             <div class="product"></div>
         </div>
-        <a href="products.html" class="btn">View All Products</a>
+        <a href="ProductServlet"><button class="view-all-products-button">View All Products</button></a>
     </div>
 
     <div class="testemonial-section">
@@ -62,7 +62,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; 2024 Yelan's Tea House. All rights reserved.</p>
     </footer>
 </body>
 </html>

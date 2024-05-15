@@ -18,7 +18,7 @@
     
     <!-- Search bar -->
     <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search products...">
+        <input type="text" id="searchInput" placeholder="  Search products...">
         <button type="button" id="searchButton">Search</button>
     </div>
     
@@ -286,29 +286,24 @@
         
      	// Function to filter products based on brand name
         function filterProductsByBrand() {
-            var brandName = document.getElementById("brandNameFilter").value;
-            // Send an AJAX request to the server to filter products by brand name
-            filterProducts("brandName", brandName);
-        }
+		    var brandName = document.getElementById("brandNameFilter").value;
+		    // Send an AJAX request to the server to filter products by brand name
+		    var xhr = new XMLHttpRequest();
+		    xhr.onreadystatechange = function() {
+		        if (xhr.readyState === XMLHttpRequest.DONE) {
+		            if (xhr.status === 200) {
+		                // On successful response, replace the product grid with updated data
+		                document.querySelector('.product-grid').innerHTML = xhr.responseText;
+		            } else {
+		                // Handle errors if any
+		                console.error('Filter request failed:', xhr.status);
+		            }
+		        }
+		    };
+		    xhr.open('GET', 'FilterProductServlet?brandName=' + encodeURIComponent(brandName), true);
+		    xhr.send();
+		}
 
-        // Function to send AJAX request for filtering products
-        function filterProducts(filterType, filterValue) {
-            // Send an AJAX request to the server
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // On successful response, replace the product grid with updated data
-                        document.querySelector('.product-grid').innerHTML = xhr.responseText;
-                    } else {
-                        // Handle errors if any
-                        console.error('Filter request failed:', xhr.status);
-                    }
-                }
-            };
-            xhr.open('GET', 'ProductServlet?filterType=' + encodeURIComponent(filterType) + '&filterValue=' + encodeURIComponent(filterValue), true);
-            xhr.send();
-        }
         
     </script>
 

@@ -116,16 +116,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>FilterServlet</display-name>
-    <servlet-name>FilterServlet</servlet-name>
-    <servlet-class>test.FilterServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FilterServlet</servlet-name>
-    <url-pattern>/FilterServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>SearchProductServlet</display-name>
     <servlet-name>SearchProductServlet</servlet-name>
     <servlet-class>test.SearchProductServlet</servlet-class>
@@ -133,5 +123,15 @@
   <servlet-mapping>
     <servlet-name>SearchProductServlet</servlet-name>
     <url-pattern>/SearchProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FilterProductServlet</display-name>
+    <servlet-name>FilterProductServlet</servlet-name>
+    <servlet-class>test.FilterProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterProductServlet</servlet-name>
+    <url-pattern>/FilterProductServlet</url-pattern>
   </servlet-mapping>
 </web-app>
