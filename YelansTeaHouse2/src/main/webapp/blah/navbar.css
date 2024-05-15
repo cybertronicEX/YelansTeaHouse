@@ -54,3 +54,18 @@
         color: #FFFFFF;
         text-decoration: none;
     }
+    
+    nav ul li.cart-button {
+    margin-right: 15px; /* Adjust margin for spacing */
+}
+
+nav ul li.cart-button a {
+    background-color: #ff85aa;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+nav ul li.cart-button a:hover {
+    background-color: #ffbfd3;
+}

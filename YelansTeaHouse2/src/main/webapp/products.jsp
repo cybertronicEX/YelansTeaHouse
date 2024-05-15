@@ -81,7 +81,7 @@
 	        %>
 	        <div class="icon-container">
 				<img class="edit-icon" src="<%= request.getContextPath() %>/svg/edit.svg" alt="Edit" onclick="openEditProductDialog('<%= product.getItemName() %>', '<%= product.getPrice() %>', '<%= product.getBrandName() %>', '<%= product.getWeight() %>', '<%= product.getNutrition() %>', '<%= product.getImageUrl() %>', event)">
-	            <img class="delete-icon" src="<%= request.getContextPath() %>/svg/delete.svg" alt="Delete" onclick="confirmDelete('<%= product.getItemName() %>', '<%= product.getItemNo() %>')">
+	            <img class="delete-icon" src="<%= request.getContextPath() %>/svg/delete.svg" alt="Delete" onclick="confirmDelete('<%= product.getItemName() %>', '<%= product.getItemNo() %>')"></img>
 	        </div>
 	        <%
 	        }
@@ -91,6 +91,7 @@
 	            <p class="item-name"><%= product.getItemName() %></p>
 	            <p class="price">Rs. <%= product.getPrice() %></p>
 	            <button class="add-to-cart-button">Add to Cart</button>
+	             
 	        </div>
 	    </div>
 	    </form>
@@ -309,6 +310,8 @@
             xhr.open('GET', 'ProductServlet?filterType=' + encodeURIComponent(filterType) + '&filterValue=' + encodeURIComponent(filterValue), true);
             xhr.send();
         }
+        
+      
         
     </script>
 

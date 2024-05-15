@@ -19,6 +19,7 @@
             <li><a href="UserServlet">Users</a></li>
         <% } %>
         <li><a href="ProductServlet">Products</a></li>
+         <li><a href="cart.jsp">Cart</a></li> <%-- Add this line for cart link --%>
         <li class="logout"><a href="LogoutServlet">Logout</a></li>
         <%-- Show user email if available in session --%>
         <% String userEmail = (String) session.getAttribute("email"); %>
