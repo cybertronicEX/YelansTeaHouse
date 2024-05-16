@@ -35,12 +35,6 @@
     	<%
     	}
     	%>
-    	
-        <!-- Drop down for price -->
-        <select name="price">
-            <option value="">Filter by Price</option>
-            <!-- Add options dynamically if needed -->
-        </select>
         
 		<!-- Drop down for brandName -->
 		<select id="brandNameFilter" name="brandName" onchange="filterProductsByBrand()">
@@ -57,12 +51,6 @@
 		    }
 		    %>
 		</select>
-		        
-        <!-- Drop down for weight -->
-        <select name="weight">
-            <option value="">Filter by Weight</option>
-            <!-- Add options dynamically if needed -->
-        </select>
         
     </div>
     

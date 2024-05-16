@@ -35,31 +35,49 @@
     </div>
 
     <div class="products-section">
-        <h2>Featured Products</h2>
+        <h2>Featured Brands</h2>
         <div class="featured-products">
             <!-- Featured Product 1 -->
-            <div class="product"></div>
+            <div class="product1">
+            	<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/37/Dilmah_logo.svg/1200px-Dilmah_logo.svg.png" alt="Dilmah">
+            </div>
             <!-- Featured Product 2 -->
-            <div class="product"></div>
+            <div class="product2">
+            	<img src="https://www.shopalimentari.it/wp-content/uploads/2020/03/2.Twinings-Tea-1.jpg" alt="Twinings">
+            </div>
             <!-- Featured Product 3 -->
-            <div class="product"></div>
+            <div class="product3">
+            	<img src="https://www.akbar.com/wp-content/uploads/2021/12/Akbar-Brothers.jpg" alt="Akbar">
+            </div>
             <!-- Featured Product 4 -->
-            <div class="product"></div>
+            <div class="product4">
+            	<img src="https://m.media-amazon.com/images/S/abs-image-upload-na/d/AmazonStores/ATVPDKIKX0DER/ae532ccf68f2c0c8862bf3c936af5d5a.w400.h400.gif" alt="Yorkshire">
+            </div>
         </div>
         <a href="ProductServlet"><button class="view-all-products-button">View All Products</button></a>
     </div>
 
-    <div class="testemonial-section">
-        <h2>Testimonials</h2>
-        <div class="testemonials">
-            <!-- Testimonial 1 -->
-            <div class="testemonial"></div>
-            <!-- Testimonial 2 -->
-            <div class="testemonial"></div>
-            <!-- Testimonial 3 -->
-            <div class="testemonial"></div>
-        </div>
-    </div>
+	<div class="testimonial-section">
+	<h2>Testimonials</h2>
+	<div class="testimonials">
+	    <!-- Testimonial 1 -->
+	    <div class="testimonial">
+	        <p>"Discovering Yelan's Tea House has been a delight! The selection of teas is unparalleled, and each order arrives fresh and full of aroma. It's like a journey around the world in every cup!"</p>
+	        <span>- Alex P.</span>
+	    </div>
+	    <!-- Testimonial 2 -->
+	    <div class="testimonial">
+	        <p>"I'm a tea enthusiast, and Yelan's Tea House has become my go-to source. The website is easy to navigate, and their rare tea collections are a treasure trove for someone like me."</p>
+	        <span>- Jamie L.</span>
+	    </div>
+	    <!-- Testimonial 3 -->
+	        <div class="testimonial">
+	            <p>"The quality of tea from Yelan's Tea House is exceptional. Their commitment to sustainability and the variety of organic options is impressive. Highly recommend!"</p>
+	            <span>- Sam K.</span>
+	        </div>
+	    </div>
+	</div>
+
 
     <footer>
         <p>&copy; 2024 Yelan's Tea House. All rights reserved.</p>

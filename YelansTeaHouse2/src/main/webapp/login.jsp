@@ -28,7 +28,7 @@
                <div  class="header">
                    <!--title-->
                    <div>
-                      <img class="img-contain1 p-3" src="imgs/logo.png">
+                      <img class="img-contain1 p-3" src="imgs/pinklogo.png">
                    </div>
                    <!--end title-->
                </div>

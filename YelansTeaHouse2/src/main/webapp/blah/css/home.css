@@ -52,6 +52,7 @@ body {
     flex: 1;
     padding-left: 10px;
     margin-right: 50px;
+    color: #929292;
 }
 
 .about-text h2 {
@@ -69,12 +70,54 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin: 30px;
 }
 
-.product {
+.product1 {
     width: 200px;
     height: 200px;
-    background-color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.product1 img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product2 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product2 img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product3 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product3 img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product4 {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product4 img{
+    width: 200px;
+    height: 200px;
     margin-bottom: 20px;
 }
 
@@ -85,7 +128,7 @@ body {
     color: #ff85aa;
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 20px;
     border-radius:20px;
 }
@@ -96,24 +139,50 @@ body {
     border-radius:20px;
 }
 
-.testemonial-section {
-    background-color: #f9f9f9;
-    padding: 50px 0;
+.testimonial-section {
+    background: linear-gradient(to top, #ffbfd3, transparent);
+    padding: 20px;
+    color: #ff85aa;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.testimonial-section h2 {
     text-align: center;
-}
-
-.testemonials {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.testemonial {
-    width: 300px;
-    height: 200px;
-    background-color: white;
     margin-bottom: 20px;
 }
+
+.testimonials {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.testimonial {
+    background: #fff;
+    color: #929292;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.testimonial span {
+    display: block;
+    text-align: right;
+    font-style: italic;
+}
+
 
 footer {
     background-color: #333;
