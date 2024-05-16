@@ -144,4 +144,14 @@
     <servlet-name>UserSearchServlet</servlet-name>
     <url-pattern>/UserSearchServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionDetails</display-name>
+    <servlet-name>SessionDetails</servlet-name>
+    <servlet-class>test.SessionDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionDetails</servlet-name>
+    <url-pattern>/SessionDetails</url-pattern>
+  </servlet-mapping>
 </web-app>

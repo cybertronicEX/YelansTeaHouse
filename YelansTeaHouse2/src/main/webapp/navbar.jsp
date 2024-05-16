@@ -23,7 +23,7 @@
         <%-- Show user email if available in session --%>
         <% String userEmail = (String) session.getAttribute("email"); %>
         <% if (userEmail != null) { %>
-            <li><%= userEmail %></li>
+            <li><a href="sessiondetails.jsp"><%= userEmail %></a></li>
         <% } %> 
         <li><a href="LogoutServlet">Logout</a></li>
     </ul>
