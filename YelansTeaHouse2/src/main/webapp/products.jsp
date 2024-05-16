@@ -126,7 +126,7 @@
 
     <!-- Add Product Popup -->
     <div id="addProductPopup" class="popup" style="display: none;">
-        <form action="AddProductServlet" method="POST">
+        <form id="addProductForm" action="AddProductServlet" method="POST" onsubmit="return validateAddProductForm()">
  			<label for="add_itemName">Item Name:</label>
             <input type="text" id="add_itemName" name="itemName" required>
             <label for="add_price">Price:</label>
@@ -141,14 +141,14 @@
             <input type="text" id="add_imageUrl" name="imageUrl" required>
             <button type="submit">Add Product</button>
             
-            <button onclick="closeAddProductDialog()">Close</button>
+            <button type="button" onclick="closeAddProductDialog()">Close</button>
             
         </form>
     </div>
     
     <!-- Edit Product Popup -->
     <div id="editProductPopup" class="popup" style="display: none;">
-        <form action="UpdateProductServlet" method="POST">
+        <form id="editProductForm" action="UpdateProductServlet" method="POST" onsubmit="return validateEditProductForm()">
             <label for="edit_itemName">Item Name:</label>
             <input type="text" id="edit_itemName" name="itemName" required>
             <label for="edit_price">Price:</label>
@@ -172,7 +172,6 @@
     <div id="overlay" style="display: none;"></div>
 
     <script>
-    
         function openProductPopup(itemName, price, brandName, weight, nutrition, imageUrl) {
             // Set each product detail individually in the popup content
             document.getElementById('show_imageUrl').innerHTML = '<img src="' + imageUrl + '" alt="' + itemName + '">';
@@ -189,7 +188,6 @@
             document.getElementById('overlay').style.display = 'block';
         }
 
-
         function closeProductPopup() {
             // Hide the popup
             document.getElementById('productPopup').style.display = 'none';
@@ -197,7 +195,6 @@
             // Hide overlay
             document.getElementById('overlay').style.display = 'none';
         }
-
 
         // Function to open Add Product dialog
         function openAddProductDialog() {
@@ -230,7 +227,6 @@
             document.getElementById('edit_imageUrl').value = imageUrl;
         }
 
-
         // Function to close Edit Product dialog
         function closeEditProductDialog() {
             document.getElementById('editProductPopup').style.display = 'none';
@@ -251,7 +247,7 @@
             overlay.style.display = (overlay.style.display === 'block') ? 'none' : 'block';
         }
         
-     	// Search functionality
+        // Search functionality
         document.getElementById("searchButton").addEventListener("click", function() {
             var searchQuery = document.getElementById("searchInput").value;
             // Send the search query to the server-side servlet for processing
@@ -284,27 +280,90 @@
             xhr.send();
         }
         
-     	// Function to filter products based on brand name
+        // Function to filter products based on brand name
         function filterProductsByBrand() {
-		    var brandName = document.getElementById("brandNameFilter").value;
-		    // Send an AJAX request to the server to filter products by brand name
-		    var xhr = new XMLHttpRequest();
-		    xhr.onreadystatechange = function() {
-		        if (xhr.readyState === XMLHttpRequest.DONE) {
-		            if (xhr.status === 200) {
-		                // On successful response, replace the product grid with updated data
-		                document.querySelector('.product-grid').innerHTML = xhr.responseText;
-		            } else {
-		                // Handle errors if any
-		                console.error('Filter request failed:', xhr.status);
-		            }
-		        }
-		    };
-		    xhr.open('GET', 'FilterProductServlet?brandName=' + encodeURIComponent(brandName), true);
-		    xhr.send();
-		}
+            var brandName = document.getElementById("brandNameFilter").value;
+            // Send an AJAX request to the server to filter products by brand name
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // On successful response, replace the product grid with updated data
+                        document.querySelector('.product-grid').innerHTML = xhr.responseText;
+                    } else {
+                        // Handle errors if any
+                        console.error('Filter request failed:', xhr.status);
+                    }
+                }
+            };
+            xhr.open('GET', 'FilterProductServlet?brandName=' + encodeURIComponent(brandName), true);
+            xhr.send();
+        }
 
-        
+        // Validate Add Product Form
+        function validateAddProductForm() {
+            return validateProductForm('add_itemName', 'add_price', 'add_brandName', 'add_weight', 'add_nutrition', 'add_imageUrl');
+        }
+
+        // Validate Edit Product Form
+        function validateEditProductForm() {
+            return validateProductForm('edit_itemName', 'edit_price', 'edit_brandName', 'edit_weight', 'edit_nutrition', 'edit_imageUrl');
+        }
+
+        // Common validation function for Add and Edit Product Forms
+        function validateProductForm(itemNameId, priceId, brandNameId, weightId, nutritionId, imageUrlId) {
+            var itemName = document.getElementById(itemNameId).value;
+            var price = document.getElementById(priceId).value;
+            var brandName = document.getElementById(brandNameId).value;
+            var weight = document.getElementById(weightId).value;
+            var nutrition = document.getElementById(nutritionId).value;
+            var imageUrl = document.getElementById(imageUrlId).value;
+
+            if (!itemName || !price || !brandName || !weight || !nutrition || !imageUrl) {
+                alert('All fields are required.');
+                return false;
+            }
+
+            if (nutrition.includes("'")) {
+                alert('The Nutrition field cannot contain the symbol \'.');
+                return false;
+            }
+
+            if (isNaN(price)) {
+                alert('The Price field must contain only numbers.');
+                return false;
+            }
+
+            if (isNaN(weight)) {
+                alert('The Weight field must contain only numbers.');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Prevent non-numeric input in Price and Weight fields
+        document.getElementById('add_price').addEventListener('keypress', function(e) {
+            if (isNaN(String.fromCharCode(e.which))) {
+                e.preventDefault();
+            }
+        });
+        document.getElementById('edit_price').addEventListener('keypress', function(e) {
+            if (isNaN(String.fromCharCode(e.which))) {
+                e.preventDefault();
+            }
+        });
+        document.getElementById('add_weight').addEventListener('keypress', function(e) {
+            if (isNaN(String.fromCharCode(e.which))) {
+                e.preventDefault();
+            }
+        });
+        document.getElementById('edit_weight').addEventListener('keypress', function(e) {
+            if (isNaN(String.fromCharCode(e.which))) {
+                e.preventDefault();
+            }
+        });
+
     </script>
 
 </body>
