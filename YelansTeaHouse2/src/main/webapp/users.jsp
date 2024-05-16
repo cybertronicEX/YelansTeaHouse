@@ -13,42 +13,55 @@
 <body>
     <%@ include file="navbar.jsp" %>
      <div id="blossom_container"></div>
-
      <script src="js/petals.js"></script>
-    <h2>User List</h2>
-    <div class="AddButton-user">
-     <button onclick="openDialog()">Add User</button>
+     <div class="User-Main-Container">
+   	 	<div class="User-title-Container">
+	    	<h2 class="UserPage-title">User Management</h2>
+	    </div>
+		<div class="UserList-search-button-Container">
+		  	<div class="user-search-bar">
+		          <form action="UserSearchServlet" method="GET">
+		            <input type="text" name="query" id="searchInput" placeholder="  Search Users...">
+		            <button type="submit" id="searchButton">Search</button>
+		        </form>
+		    </div>
+		    <div class="AddButton-user">
+		     	<button onclick="openDialog()">Add User</button>
+		    </div>
+	    </div>
+	    <div class="user-table-container">
+		    <table>
+		        <tr>
+		            <th>Email</th>
+		            <th>Contact Number</th>
+		            <th>Address</th>
+		            <th>Password</th>
+		            <th>Actions</th>
+		        </tr>
+		        <%
+		            List<User> userList = (List<User>) request.getAttribute("userList");
+		            for (User user : userList) {
+		        %>
+		        <tr>
+		            <td><%= user.getEmail() %></td>
+		            <td><%= user.getContactNumber() %></td>
+		            <td><%= user.getAddress() %></td>
+		            <td><%= user.getPassword() %></td>
+		            <td style="display: flex; justify-content: space-evenly;">
+		                <button onclick="openEditDialog('<%= user.getEmail() %>', '<%= user.getContactNumber() %>', '<%= user.getAddress() %>', '<%= user.getPassword() %>')">Edit</button>
+						<button class="delete-button-users" onclick="openDeleteDialog('<%= user.getEmail() %>')">Delete</button>
+		
+		            </td>
+		        </tr>
+		        <%
+		            }
+		        %>
+		    </table>
+	    </div>
     </div>
-    <table>
-        <tr>
-            <th>Email</th>
-            <th>Contact Number</th>
-            <th>Address</th>
-            <th>Password</th>
-            <th>Actions</th>
-        </tr>
-        <%
-            List<User> userList = (List<User>) request.getAttribute("userList");
-            for (User user : userList) {
-        %>
-        <tr>
-            <td><%= user.getEmail() %></td>
-            <td><%= user.getContactNumber() %></td>
-            <td><%= user.getAddress() %></td>
-            <td><%= user.getPassword() %></td>
-            <td style="display: flex; justify-content: center;">
-                <button onclick="openEditDialog('<%= user.getEmail() %>', '<%= user.getContactNumber() %>', '<%= user.getAddress() %>', '<%= user.getPassword() %>')">Edit</button>
-				<button class="delete-button-users" onclick="openDeleteDialog('<%= user.getEmail() %>')">Delete</button>
-
-            </td>
-        </tr>
-        <%
-            }
-        %>
-    </table>
     <div id="overlay"></div>
     <div id="dialog" style="display: none;">
-          <form action="RegistrationServlet" method="POST">
+          <form action="RegistrationServlet" method="POST" name="registrationForm" onsubmit="return validateRegistrationForm()">
             <div class="register-form-container">
                  <label class="Login-Rgister-label">Email:</label>
                 <input class="input-text" type="email" name="email" placeholder="Email address" required onchange="validatemail()">
@@ -66,10 +79,10 @@
         </form>
     </div>
     <div id="editDialog" style="display: none;">
-        <form action="UpdateUserServlet" method="POST">
+	<form action="UpdateUserServlet" method="POST" name="editForm" onsubmit="return validateEditForm()">
           <div class="edit-form-container">
-                <label class="Login-Rgister-label">Email:</label>
-                <input class="input-text" type="email" name="email" placeholder="Email address" required>
+               <!--  <label class="Login-Rgister-label">Email:</label> -->
+                <input class="input-text" type="hidden" name="email" placeholder="Email address" required>
                 <label class="Login-Rgister-label">Contact Number:</label>
                 <input class="input-text" type="text" name="contactNumber" placeholder="Contact number" required>
                 <label class="Login-Rgister-label">Address:</label>
@@ -135,6 +148,65 @@
         function closeDeleteDialog() {
             document.getElementById('deleteDialog').style.display = 'none';
             document.getElementById('overlay').style.display = 'none';
+        }
+        
+        //Validations
+        function validateContactNumber(contactNumber) {
+
+        var regex1 = /^\+94\d{9}$/; // Format: +94xxxxxxxxx
+        var regex2 = /^0\d{9}$/;    // Format: 0xxxxxxxxx
+
+        if (regex1.test(contactNumber) || regex2.test(contactNumber)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+        
+        function validateRegistrationForm() {
+            var email = document.forms["registrationForm"]["email"].value;
+            var contactNumber = document.forms["registrationForm"]["contactNumber"].value;
+            var address = document.forms["registrationForm"]["address"].value;
+            var password = document.forms["registrationForm"]["password"].value;
+
+            if (email === "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            if (!validateContactNumber(contactNumber)) {
+                alert("Contact number must be in the format +94xxxxxxxxx or 0xxxxxxxxx");
+                return false;
+            }
+            if (address === "") {
+                alert("Address must be filled out");
+                return false;
+            }
+            if (password === "") {
+                alert("Password must be filled out");
+                return false;
+            }
+
+            return true;
+        }
+        
+        function validateEditForm() {
+            var contactNumber = document.forms["editForm"]["contactNumber"].value;
+            var address = document.forms["editForm"]["address"].value;
+            var password = document.forms["editForm"]["password"].value;
+
+            if (!validateContactNumber(contactNumber)) {
+                alert("Contact number must be in the format +94xxxxxxxxx or 0xxxxxxxxx");
+                return false;
+            }
+            if (address === "") {
+                alert("Address must be filled out");
+                return false;
+            }
+            if (password === "") {
+                alert("Password must be filled out");
+                return false;
+            }
+            return true;
         }
     </script>
 

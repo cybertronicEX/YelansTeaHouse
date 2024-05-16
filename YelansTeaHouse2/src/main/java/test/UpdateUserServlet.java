@@ -15,13 +15,9 @@ import java.sql.SQLException;
  */
 public class UpdateUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public UpdateUserServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,14 +31,25 @@ public class UpdateUserServlet extends HttpServlet {
 
         boolean updated = false;
         try {
-            Connection conn =  SQLConnect.connect();
+            Connection conn = SQLConnect.connect();
             String query = "UPDATE user SET contactNumber=?, address=?, password=? WHERE email=?";
             PreparedStatement statement = conn.prepareStatement(query);
             statement.setString(1, contactNumber);
             statement.setString(2, address);
             statement.setString(3, password);
             statement.setString(4, email);
-            updated = statement.executeUpdate() > 0;
+
+            // Debugging: Print the SQL query and parameters
+            System.out.println("Executing query: " + query);
+            System.out.println("With parameters: ");
+            System.out.println("1: " + contactNumber);
+            System.out.println("2: " + address);
+            System.out.println("3: " + password);
+            System.out.println("4: " + email);
+
+            int rowsAffected = statement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
+            updated = rowsAffected > 0;
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,9 +62,10 @@ public class UpdateUserServlet extends HttpServlet {
         out.println("<script type=\"text/javascript\">");
         if (updated) {
             out.println("alert('User updated successfully');");
-            out.println("window.location.href='ProductServlet';");
+            out.println("window.location.href='UserServlet';");
         } else {
             out.println("alert('Failed to update user');");
+            out.println("window.location.href='UserServlet';");
         }
         out.println("</script>");
     }

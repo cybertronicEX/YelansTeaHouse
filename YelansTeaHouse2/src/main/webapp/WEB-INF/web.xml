@@ -134,4 +134,14 @@
     <servlet-name>FilterProductServlet</servlet-name>
     <url-pattern>/FilterProductServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserSearchServlet</display-name>
+    <servlet-name>UserSearchServlet</servlet-name>
+    <servlet-class>test.UserSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserSearchServlet</servlet-name>
+    <url-pattern>/UserSearchServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
